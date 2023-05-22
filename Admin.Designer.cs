@@ -36,8 +36,9 @@
             productosToolStripMenuItem = new ToolStripMenuItem();
             agregarProductoToolStripMenuItem = new ToolStripMenuItem();
             verProductosToolStripMenuItem = new ToolStripMenuItem();
-            panel_admin = new Panel();
             carritoToolStripMenuItem = new ToolStripMenuItem();
+            cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
+            panel_admin = new Panel();
             menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -52,7 +53,7 @@
             // 
             // menuToolStripMenuItem
             // 
-            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, productosToolStripMenuItem, carritoToolStripMenuItem });
+            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, productosToolStripMenuItem, carritoToolStripMenuItem, cerrarSesionToolStripMenuItem });
             menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             menuToolStripMenuItem.Size = new Size(50, 20);
             menuToolStripMenuItem.Text = "Menu";
@@ -63,6 +64,8 @@
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             clientesToolStripMenuItem.Size = new Size(180, 22);
             clientesToolStripMenuItem.Text = "Clientes";
+            clientesToolStripMenuItem.Visible = false;
+            clientesToolStripMenuItem.VisibleChanged += Admin_Load;
             // 
             // agregarClienteToolStripMenuItem
             // 
@@ -88,23 +91,16 @@
             // agregarProductoToolStripMenuItem
             // 
             agregarProductoToolStripMenuItem.Name = "agregarProductoToolStripMenuItem";
-            agregarProductoToolStripMenuItem.Size = new Size(180, 22);
+            agregarProductoToolStripMenuItem.Size = new Size(168, 22);
             agregarProductoToolStripMenuItem.Text = "Agregar producto";
             agregarProductoToolStripMenuItem.Click += agregarProductoToolStripMenuItem_Click;
             // 
             // verProductosToolStripMenuItem
             // 
             verProductosToolStripMenuItem.Name = "verProductosToolStripMenuItem";
-            verProductosToolStripMenuItem.Size = new Size(180, 22);
+            verProductosToolStripMenuItem.Size = new Size(168, 22);
             verProductosToolStripMenuItem.Text = "Ver productos";
             verProductosToolStripMenuItem.Click += verProductosToolStripMenuItem_Click;
-            // 
-            // panel_admin
-            // 
-            panel_admin.Location = new Point(0, 27);
-            panel_admin.Name = "panel_admin";
-            panel_admin.Size = new Size(1156, 542);
-            panel_admin.TabIndex = 3;
             // 
             // carritoToolStripMenuItem
             // 
@@ -112,6 +108,20 @@
             carritoToolStripMenuItem.Size = new Size(180, 22);
             carritoToolStripMenuItem.Text = "Carrito";
             carritoToolStripMenuItem.Click += verCarritoToolStripMenuItem;
+            // 
+            // cerrarSesionToolStripMenuItem
+            // 
+            cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            cerrarSesionToolStripMenuItem.Size = new Size(180, 22);
+            cerrarSesionToolStripMenuItem.Text = "Cerrar sesion";
+            cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
+            // 
+            // panel_admin
+            // 
+            panel_admin.Location = new Point(0, 27);
+            panel_admin.Name = "panel_admin";
+            panel_admin.Size = new Size(1156, 542);
+            panel_admin.TabIndex = 3;
             // 
             // Admin
             // 
@@ -122,7 +132,7 @@
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "Admin";
-            Text = "Admin";
+            Text = "Vinoteca";
             Load += Admin_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -141,5 +151,6 @@
         private ToolStripMenuItem agregarProductoToolStripMenuItem;
         private ToolStripMenuItem verProductosToolStripMenuItem;
         private ToolStripMenuItem carritoToolStripMenuItem;
+        private ToolStripMenuItem cerrarSesionToolStripMenuItem;
     }
 }

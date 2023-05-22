@@ -39,16 +39,10 @@ namespace TP1_UTN
                     if (elemento.Value.Usuario == user && elemento.Value.Password == pw)
                     {
                         this.Hide();
-                        if (elemento.Value.IsAdmin == true)
-                        {
-                            Admin admin = new();
-                            admin.Show();
-                        }
-                        else
-                        {
-                            Productos productos = new Productos();
-                            productos.Show();
-                        }
+                        Admin admin = new();
+                        _ = elemento.Value.IsAdmin == true ? admin.isAdmin = true : admin.isAdmin = false;
+                     
+                        admin.Show();
 
                     }
                     lbl_credentialsError.Text = "Error, credenciales invalidas";

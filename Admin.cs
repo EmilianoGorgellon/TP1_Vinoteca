@@ -20,7 +20,7 @@ namespace TP1_UTN
         {
             InitializeComponent();
         }
-
+        public bool isAdmin;
         private void showProduct()
         {
             Productos producto = new Productos();
@@ -57,7 +57,11 @@ namespace TP1_UTN
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            showClientes();
+            if (isAdmin)
+            {
+                clientesToolStripMenuItem.Visible = true;
+            }
+            showProduct();
         }
 
         private void verProductosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -86,6 +90,11 @@ namespace TP1_UTN
         private void verCarritoToolStripMenuItem(object sender, EventArgs e)
         {
             showCarrito();
+        }
+
+        private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

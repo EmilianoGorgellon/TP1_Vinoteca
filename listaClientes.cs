@@ -91,7 +91,7 @@ namespace TP1_UTN
                 MessageBox.Show("Lo tengo que Editar: " + e.RowIndex);
                 string rol = (string)dataGridViewPersonas.Rows[e.RowIndex].Cells[3].Value;
                 string id = (string)dataGridViewPersonas.Rows[e.RowIndex].Cells[4].Value;
-
+               
                 //admin.
             }
         }

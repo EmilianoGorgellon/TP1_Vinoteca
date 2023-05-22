@@ -29,7 +29,8 @@ namespace TP1_UTN
         public void llenar_carrito()
         {
             lbl_title.Text = _nombre;
-            lbl_price.Text = _precio.ToString();
+            lbl_price.Text = $"${_precio.ToString()}";
+            lbl_cantidad.Text = "1";
             pbox_image.Image = Image.FromFile(_linkImage);
         }
 

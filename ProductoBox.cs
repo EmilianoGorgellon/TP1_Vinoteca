@@ -33,7 +33,8 @@ namespace TP1_UTN
         {
             lbl_fecha.Text = _fecha;
             lbl_title.Text = _nombre;
-            lbl_price.Text = _precio.ToString();
+            lbl_stock.Text = $"Cantidad: {_stock}";
+            lbl_price.Text = $"${_precio}";
             pbox_image.Image = Image.FromFile(_linkImage);
         }
 
