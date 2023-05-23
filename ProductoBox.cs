@@ -61,15 +61,11 @@ namespace TP1_UTN
         {
             try
             {
-                MessageBox.Show(_linkImage);
                 EditProduct editProduct = new EditProduct();
                 editProduct.Id = _id;
                 editProduct.LinkImage = _linkImage;
                 editProduct.cargarFormulario(_nombre, _precio, _stock, _linkImage);
-
-
                 editProduct.Show();
-
             }
             catch (Exception ex)
             {

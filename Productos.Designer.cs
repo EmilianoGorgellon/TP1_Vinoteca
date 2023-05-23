@@ -35,6 +35,7 @@
             // lbl_product_title
             // 
             lbl_product_title.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_product_title.ForeColor = Color.White;
             lbl_product_title.Location = new Point(0, 14);
             lbl_product_title.Name = "lbl_product_title";
             lbl_product_title.Size = new Size(1158, 76);
@@ -54,6 +55,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DeepSkyBlue;
             ClientSize = new Size(1156, 542);
             Controls.Add(flpanel_productos);
             Controls.Add(lbl_product_title);

@@ -68,10 +68,12 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DeepSkyBlue;
             ClientSize = new Size(1140, 503);
             Controls.Add(btn_comprar);
             Controls.Add(flpanel_carrito);
             Controls.Add(label1);
+            ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.None;
             Name = "Carrito";
             Text = "Carrito";
