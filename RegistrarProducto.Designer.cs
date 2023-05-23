@@ -167,8 +167,6 @@
         private Label lbl_stock;
         private Button btn_add_product;
         private NumericUpDown numeric_stock;
-        private Label lbl_image;
-        private PictureBox pictureBox1;
         private Button btn_select_image;
         private PictureBox pbox_image;
     }

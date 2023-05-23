@@ -22,7 +22,11 @@ namespace TP1_UTN
         {
 
         }
-
+        /// <summary>
+        /// Inicia sesion y dependiendo si es cliente o administrador va a tener distintos permisos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void btn_login_Click(object sender, EventArgs e)
         {
             string user = txtbox_user.Text;
@@ -30,7 +34,6 @@ namespace TP1_UTN
 
             if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(pw))
             {
-                //var cliente = new Cliente(user, pw, 0);
                 FirebaseResponse response = await Firebase.GetAsync("users");
                 Dictionary<string, Cliente> lista = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(response.Body);
 
@@ -56,12 +59,36 @@ namespace TP1_UTN
                 MessageBox.Show("Debe ingresar usuario y/o contraseña");
             }
         }
-
+        /// <summary>
+        /// Registra un usuario
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_register_Click(object sender, EventArgs e)
         {
             Registrarse register = new();
             register.isAdmin = false;
             register.Show();
+        }
+        /// <summary>
+        /// Boton para ingresar desde admin
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_test_admin_Click(object sender, EventArgs e)
+        {
+            txtbox_user.Text = "admin";
+            txb_password.Text = "admin";
+        }
+        /// <summary>
+        /// Boton para ingresar desde cliente
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_cliente_Click(object sender, EventArgs e)
+        {
+            txtbox_user.Text = "nuevo";
+            txb_password.Text = "nuevo";
         }
     }
 

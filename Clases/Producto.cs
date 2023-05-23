@@ -13,7 +13,6 @@ namespace TP1_UTN.Clases
         private string _nombre;
         private float _precio;
         private int _stock;
-        private string _linkImage;
         private string _fecha;
         
         public string Fecha { get { return _fecha;  } set { _fecha = value; } }

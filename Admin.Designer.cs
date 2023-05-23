@@ -152,6 +152,5 @@
         private ToolStripMenuItem verProductosToolStripMenuItem;
         private ToolStripMenuItem carritoToolStripMenuItem;
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
-        private Label label1;
     }
 }

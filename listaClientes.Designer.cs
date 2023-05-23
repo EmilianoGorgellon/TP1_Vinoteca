@@ -63,7 +63,6 @@
 
         #endregion
 
-        private Label label1;
         private DataGridView dataGridViewPersonas;
     }
 }

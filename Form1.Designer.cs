@@ -37,6 +37,8 @@
             pictureBox1 = new PictureBox();
             lbl_credentialsError = new Label();
             txb_password = new TextBox();
+            btn_test_admin = new Button();
+            btn_cliente = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -45,7 +47,7 @@
             btn_login.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_login.BackColor = Color.White;
             btn_login.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_login.Location = new Point(453, 362);
+            btn_login.Location = new Point(606, 362);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(115, 35);
             btn_login.TabIndex = 0;
@@ -57,7 +59,7 @@
             // 
             btn_register.BackColor = Color.White;
             btn_register.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
-            btn_register.Location = new Point(252, 362);
+            btn_register.Location = new Point(99, 362);
             btn_register.Name = "btn_register";
             btn_register.Size = new Size(115, 35);
             btn_register.TabIndex = 1;
@@ -133,12 +135,38 @@
             txb_password.Size = new Size(150, 27);
             txb_password.TabIndex = 8;
             // 
+            // btn_test_admin
+            // 
+            btn_test_admin.BackColor = Color.White;
+            btn_test_admin.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_test_admin.Location = new Point(270, 362);
+            btn_test_admin.Name = "btn_test_admin";
+            btn_test_admin.Size = new Size(115, 35);
+            btn_test_admin.TabIndex = 9;
+            btn_test_admin.Text = "Testeo admin";
+            btn_test_admin.UseVisualStyleBackColor = false;
+            btn_test_admin.Click += btn_test_admin_Click;
+            // 
+            // btn_cliente
+            // 
+            btn_cliente.BackColor = Color.White;
+            btn_cliente.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_cliente.Location = new Point(440, 362);
+            btn_cliente.Name = "btn_cliente";
+            btn_cliente.Size = new Size(115, 35);
+            btn_cliente.TabIndex = 10;
+            btn_cliente.Text = "Testeo cliente";
+            btn_cliente.UseVisualStyleBackColor = false;
+            btn_cliente.Click += btn_cliente_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.DeepSkyBlue;
             ClientSize = new Size(800, 450);
+            Controls.Add(btn_cliente);
+            Controls.Add(btn_test_admin);
             Controls.Add(txb_password);
             Controls.Add(lbl_credentialsError);
             Controls.Add(txtbox_user);
@@ -167,5 +195,7 @@
         private PictureBox pictureBox1;
         private Label lbl_credentialsError;
         private TextBox txb_password;
+        private Button btn_test_admin;
+        private Button btn_cliente;
     }
 }

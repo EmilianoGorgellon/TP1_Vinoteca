@@ -51,7 +51,7 @@ namespace TP1_UTN
         private void btn_select_image_Click(object sender, EventArgs e)
         {
             OpenFileDialog imageSeleccionada = new OpenFileDialog();
-            imageSeleccionada.Filter = "|*.jpg; *.png; *.jpeg";
+            imageSeleccionada.Filter = "|*.png;";
 
             if (imageSeleccionada.ShowDialog() == DialogResult.OK)
             {

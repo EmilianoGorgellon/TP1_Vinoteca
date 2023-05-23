@@ -165,7 +165,6 @@
         private PictureBox pbox_image;
         private Button btn_select_image;
         private NumericUpDown numeric_stock;
-        private Button btn_add_product;
         private Label lbl_stock;
         private NumericUpDown numeric_price;
         private Label lbl_precio;

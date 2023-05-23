@@ -20,7 +20,11 @@ namespace TP1_UTN
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Enlista a los clientes en el dataGridViewPersonas
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void listaClientes_Load(object sender, EventArgs e)
         {
             dataGridViewPersonas.Location = new Point(200, 400);
@@ -57,7 +61,9 @@ namespace TP1_UTN
             dataGridViewPersonas.Columns.Add(eliminar);
             FillDataToGrid();
         }
-
+        /// <summary>
+        /// Llena los valores de la lista.
+        /// </summary>
         private async void FillDataToGrid()
         {
 
@@ -74,7 +80,11 @@ namespace TP1_UTN
 
 
         }
-
+        /// <summary>
+        /// Obtengo el click del usuario en la celda seleccionada, si es eliminar elimino y si edita edito.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void dataGridViewPersonas_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Administrador admin = new Administrador();
@@ -88,8 +98,6 @@ namespace TP1_UTN
             }
             else if (dataGridViewPersonas.Columns[e.ColumnIndex].Name == "btn_edit")
             {
-                MessageBox.Show("Lo tengo que Editar: " + e.RowIndex);
-
                 string user = (string)dataGridViewPersonas.Rows[e.RowIndex].Cells[0].Value;
                 string password = (string)dataGridViewPersonas.Rows[e.RowIndex].Cells[1].Value;
                 int puntos = (int)dataGridViewPersonas.Rows[e.RowIndex].Cells[2].Value;
@@ -101,7 +109,11 @@ namespace TP1_UTN
                 FillDataToGrid();
             }
         }
-
+        /// <summary>
+        /// Creo un usuario con los beneficios de administrador
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btn_create_user_Click(object sender, EventArgs e)
         {
             Registrarse register = new Registrarse();

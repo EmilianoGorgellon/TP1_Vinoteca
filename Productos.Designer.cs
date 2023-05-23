@@ -69,7 +69,6 @@
         #endregion
 
         private Label lbl_product_title;
-        private PictureBox pictureBox1;
         private FlowLayoutPanel flpanel_productos;
     }
 }

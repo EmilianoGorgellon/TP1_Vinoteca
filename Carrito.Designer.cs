@@ -36,6 +36,7 @@
             // label1
             // 
             label1.Font = new Font("Segoe UI", 25F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.Black;
             label1.Location = new Point(-3, 18);
             label1.Name = "label1";
             label1.Size = new Size(1143, 49);
@@ -56,9 +57,9 @@
             btn_comprar.BackColor = Color.DodgerBlue;
             btn_comprar.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
             btn_comprar.ForeColor = Color.White;
-            btn_comprar.Location = new Point(932, 440);
+            btn_comprar.Location = new Point(809, 442);
             btn_comprar.Name = "btn_comprar";
-            btn_comprar.Size = new Size(196, 41);
+            btn_comprar.Size = new Size(319, 49);
             btn_comprar.TabIndex = 2;
             btn_comprar.Text = "Comprar";
             btn_comprar.UseVisualStyleBackColor = false;
@@ -68,7 +69,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.DeepSkyBlue;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(1140, 503);
             Controls.Add(btn_comprar);
             Controls.Add(flpanel_carrito);
@@ -84,7 +85,6 @@
         #endregion
 
         private Label label1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flpanel_carrito;
         private Button btn_comprar;
     }

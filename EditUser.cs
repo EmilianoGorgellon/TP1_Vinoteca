@@ -23,7 +23,13 @@ namespace TP1_UTN
         private string _id;
 
         public string Id { get { return _id; } set { _id = value; } }
-
+        /// <summary>
+        /// Cargo el formulario con los valores que recibo por parametro
+        /// </summary>
+        /// <param name="nombre">Nombre del usuario</param>
+        /// <param name="password">Contraseña</param>
+        /// <param name="puntos">Son los puntos del cliente</param>
+        /// <param name="id">El id del usuario</param>
         public void cargarFormulario(string nombre, string password, int puntos, string id)
         {
             txtbox_user.Text = nombre;
@@ -36,7 +42,11 @@ namespace TP1_UTN
         {
 
         }
-
+        /// <summary>
+        /// Actualizo al usuario con todos los valores.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void btn_update_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtbox_user.Text) && !string.IsNullOrEmpty(txb_password.Text) && int.TryParse(numeric_puntos.Text, out int puntos))

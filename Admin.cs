@@ -21,6 +21,7 @@ namespace TP1_UTN
             InitializeComponent();
         }
         public bool _isAdmin;
+
         private void showProduct()
         {
             Productos producto = new Productos();
