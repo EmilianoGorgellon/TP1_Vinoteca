@@ -89,10 +89,16 @@ namespace TP1_UTN
             else if (dataGridViewPersonas.Columns[e.ColumnIndex].Name == "btn_edit")
             {
                 MessageBox.Show("Lo tengo que Editar: " + e.RowIndex);
-                string rol = (string)dataGridViewPersonas.Rows[e.RowIndex].Cells[3].Value;
+
+                string user = (string)dataGridViewPersonas.Rows[e.RowIndex].Cells[0].Value;
+                string password = (string)dataGridViewPersonas.Rows[e.RowIndex].Cells[1].Value;
+                int puntos = (int)dataGridViewPersonas.Rows[e.RowIndex].Cells[2].Value;
                 string id = (string)dataGridViewPersonas.Rows[e.RowIndex].Cells[4].Value;
-               
-                //admin.
+                EditUser edicionUser = new EditUser();
+
+                edicionUser.cargarFormulario(user, password, puntos, id);
+                edicionUser.Show();
+                FillDataToGrid();
             }
         }
 

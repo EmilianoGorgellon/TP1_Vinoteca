@@ -43,8 +43,12 @@ namespace TP1_UTN
                 {
                     MessageBox.Show("Se creo satisfactoriamente el usuario");
                 }
+                else
+                {
+                    MessageBox.Show("Error no se pudo crear el usuario");
+                }
 
-                this.Hide();
+                this.Close();
             }
         }
 

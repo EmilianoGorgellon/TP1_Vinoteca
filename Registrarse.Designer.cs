@@ -61,6 +61,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(12, 79);
             label2.Name = "label2";
             label2.Size = new Size(83, 20);
@@ -71,6 +72,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(12, 17);
             label1.Name = "label1";
             label1.Size = new Size(59, 20);
@@ -79,18 +81,21 @@
             // 
             // btn_save
             // 
+            btn_save.BackColor = Color.White;
+            btn_save.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btn_save.Location = new Point(12, 213);
             btn_save.Name = "btn_save";
             btn_save.Size = new Size(150, 33);
             btn_save.TabIndex = 14;
             btn_save.Text = "Crear cliente";
-            btn_save.UseVisualStyleBackColor = true;
+            btn_save.UseVisualStyleBackColor = false;
             btn_save.Click += btn_save_Click;
             // 
             // lbl_puntos
             // 
             lbl_puntos.AutoSize = true;
             lbl_puntos.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            lbl_puntos.ForeColor = Color.White;
             lbl_puntos.Location = new Point(12, 136);
             lbl_puntos.Name = "lbl_puntos";
             lbl_puntos.Size = new Size(53, 20);
@@ -111,7 +116,8 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(231, 332);
+            BackColor = Color.DeepSkyBlue;
+            ClientSize = new Size(182, 266);
             Controls.Add(numeric_puntos);
             Controls.Add(lbl_puntos);
             Controls.Add(btn_save);

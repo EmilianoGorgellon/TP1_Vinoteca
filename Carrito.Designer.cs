@@ -30,6 +30,7 @@
         {
             label1 = new Label();
             flpanel_carrito = new FlowLayoutPanel();
+            btn_comprar = new Button();
             SuspendLayout();
             // 
             // label1
@@ -47,14 +48,28 @@
             flpanel_carrito.AutoScroll = true;
             flpanel_carrito.Location = new Point(12, 109);
             flpanel_carrito.Name = "flpanel_carrito";
-            flpanel_carrito.Size = new Size(1116, 397);
+            flpanel_carrito.Size = new Size(1116, 312);
             flpanel_carrito.TabIndex = 1;
+            // 
+            // btn_comprar
+            // 
+            btn_comprar.BackColor = Color.DodgerBlue;
+            btn_comprar.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            btn_comprar.ForeColor = Color.White;
+            btn_comprar.Location = new Point(932, 440);
+            btn_comprar.Name = "btn_comprar";
+            btn_comprar.Size = new Size(196, 41);
+            btn_comprar.TabIndex = 2;
+            btn_comprar.Text = "Comprar";
+            btn_comprar.UseVisualStyleBackColor = false;
+            btn_comprar.Click += btn_comprar_Click;
             // 
             // Carrito
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1140, 503);
+            Controls.Add(btn_comprar);
             Controls.Add(flpanel_carrito);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
@@ -69,5 +84,6 @@
         private Label label1;
         private FlowLayoutPanel flowLayoutPanel1;
         private FlowLayoutPanel flpanel_carrito;
+        private Button btn_comprar;
     }
 }

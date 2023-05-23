@@ -30,9 +30,11 @@ namespace TP1_UTN
 
         public string remove_product(string id)
         {
-            if (listaProductosId.Remove(id)) {
+            if (listaProductosId.Remove(id))
+            {
                 return "Se elimino producto";
-            } else
+            }
+            else
             {
                 return "No se elimino correctamente el producto";
             }
@@ -59,6 +61,29 @@ namespace TP1_UTN
                     }
                 }
             }
+        }
+
+        private async void btn_comprar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                FirebaseResponse response = await Firebase.GetAsync("productos");
+                Dictionary<string, Producto> lista = JsonConvert.DeserializeObject<Dictionary<string, Producto>>(response.Body);
+
+                foreach (string id in listaProductosId)
+                {
+                    Producto.ReducirStockProducto(id);
+                }
+                MessageBox.Show("Felicitaciones!! Se hizo correctamente la compra");
+
+                listaProductosId.Clear();
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

@@ -33,3 +33,4 @@ C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.listaCl
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.ProductoBox.resources
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.Carrito.resources
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.CarritoBox.resources
+C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.EditProduct.resources

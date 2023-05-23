@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FireSharp.Response;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP1_UTN.Clases;
 
 namespace TP1_UTN
 {
@@ -22,6 +25,8 @@ namespace TP1_UTN
         private string _linkImage;
         private string _fecha;
         private string _id;
+        private bool _isAdmin;
+
         Carrito carrit = new Carrito();
         public string Fecha { get { return _fecha; } set { _fecha = value; } }
         public string Nombre { get { return _nombre; } set { _nombre = value; } }
@@ -29,6 +34,8 @@ namespace TP1_UTN
         public int Stock { get { return _stock; } set { _stock = value; } }
         public string LinkImage { get { return _linkImage; } set { _linkImage = value; } }
         public string Id { get { return _id; } set { _id = value; } }
+        public bool IsAdmin { get { return _isAdmin; } set { _isAdmin = value; } }
+
         public void llenar_Producto()
         {
             lbl_fecha.Text = _fecha;
@@ -40,7 +47,39 @@ namespace TP1_UTN
 
         private void btn_add_carrito_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(carrit.add_producto(_id));
+            if (_stock > 0)
+            {
+                MessageBox.Show(carrit.add_producto(_id));
+            }
+            else
+            {
+                MessageBox.Show("No hay mas stock de este producto");
+            }
+        }
+
+        private async void btn_edit_product_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show(_linkImage);
+                EditProduct editProduct = new EditProduct();
+                editProduct.Id = _id;
+                editProduct.LinkImage = _linkImage;
+                editProduct.cargarFormulario(_nombre, _precio, _stock, _linkImage);
+
+
+                editProduct.Show();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void ProductoBox_Load(object sender, EventArgs e)
+        {
+            _ = _isAdmin ? btn_edit_product.Visible = true : btn_edit_product.Visible = false;
         }
     }
 }

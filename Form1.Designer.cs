@@ -43,30 +43,33 @@
             // btn_login
             // 
             btn_login.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_login.BackColor = Color.White;
             btn_login.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             btn_login.Location = new Point(453, 362);
             btn_login.Name = "btn_login";
             btn_login.Size = new Size(115, 35);
             btn_login.TabIndex = 0;
             btn_login.Text = "Iniciar sesion";
-            btn_login.UseVisualStyleBackColor = true;
+            btn_login.UseVisualStyleBackColor = false;
             btn_login.Click += btn_login_Click;
             // 
             // btn_register
             // 
+            btn_register.BackColor = Color.White;
             btn_register.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             btn_register.Location = new Point(252, 362);
             btn_register.Name = "btn_register";
             btn_register.Size = new Size(115, 35);
             btn_register.TabIndex = 1;
             btn_register.Text = "Registrarse";
-            btn_register.UseVisualStyleBackColor = true;
+            btn_register.UseVisualStyleBackColor = false;
             btn_register.Click += btn_register_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(335, 195);
             label1.Name = "label1";
             label1.Size = new Size(59, 20);
@@ -84,6 +87,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
             label2.Location = new Point(335, 266);
             label2.Name = "label2";
             label2.Size = new Size(83, 20);
@@ -133,6 +137,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DeepSkyBlue;
             ClientSize = new Size(800, 450);
             Controls.Add(txb_password);
             Controls.Add(lbl_credentialsError);

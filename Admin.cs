@@ -20,7 +20,7 @@ namespace TP1_UTN
         {
             InitializeComponent();
         }
-        public bool isAdmin;
+        public bool _isAdmin;
         private void showProduct()
         {
             Productos producto = new Productos();
@@ -28,7 +28,7 @@ namespace TP1_UTN
             producto.Dock = DockStyle.Fill;
             panel_admin.Controls.Clear();
             panel_admin.Controls.Add(producto);
-            producto.isAdmin = true;
+            producto.IsAdmin = _isAdmin;
             producto.Show();
         }
 
@@ -38,7 +38,6 @@ namespace TP1_UTN
             panel_admin.Controls.Clear();
             clientes.TopLevel = false;
             clientes.Dock = DockStyle.Fill;
-            panel_admin.Controls.Clear();
             panel_admin.Controls.Add(clientes);
             clientes.Show();
         }
@@ -49,7 +48,6 @@ namespace TP1_UTN
             panel_admin.Controls.Clear();
             carrit.TopLevel = false;
             carrit.Dock = DockStyle.Fill;
-            panel_admin.Controls.Clear();
             panel_admin.Controls.Add(carrit);
             carrit.Show();
 
@@ -57,7 +55,7 @@ namespace TP1_UTN
 
         private void Admin_Load(object sender, EventArgs e)
         {
-            if (isAdmin)
+            if (_isAdmin)
             {
                 clientesToolStripMenuItem.Visible = true;
             }
@@ -83,7 +81,7 @@ namespace TP1_UTN
         private void agregarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Registrarse register = new Registrarse();
-            register.isAdmin = true;
+            register.isAdmin = _isAdmin;
             register.Show();
         }
 

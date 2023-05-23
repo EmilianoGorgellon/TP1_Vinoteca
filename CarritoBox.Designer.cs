@@ -50,7 +50,7 @@
             lbl_title.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             lbl_title.Location = new Point(195, 36);
             lbl_title.Name = "lbl_title";
-            lbl_title.Size = new Size(236, 118);
+            lbl_title.Size = new Size(187, 118);
             lbl_title.TabIndex = 1;
             lbl_title.Text = "Titulo";
             lbl_title.TextAlign = ContentAlignment.MiddleCenter;
@@ -59,9 +59,9 @@
             // 
             lbl_price.BackColor = Color.White;
             lbl_price.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_price.Location = new Point(436, 36);
+            lbl_price.Location = new Point(388, 36);
             lbl_price.Name = "lbl_price";
-            lbl_price.Size = new Size(236, 118);
+            lbl_price.Size = new Size(202, 118);
             lbl_price.TabIndex = 2;
             lbl_price.Text = "Precio";
             lbl_price.TextAlign = ContentAlignment.MiddleCenter;
@@ -70,9 +70,9 @@
             // 
             lbl_cantidad.BackColor = Color.White;
             lbl_cantidad.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
-            lbl_cantidad.Location = new Point(669, 36);
+            lbl_cantidad.Location = new Point(596, 36);
             lbl_cantidad.Name = "lbl_cantidad";
-            lbl_cantidad.Size = new Size(236, 118);
+            lbl_cantidad.Size = new Size(211, 118);
             lbl_cantidad.TabIndex = 3;
             lbl_cantidad.Text = "Cantidad";
             lbl_cantidad.TextAlign = ContentAlignment.MiddleCenter;
@@ -82,9 +82,9 @@
             btn_eliminar.BackColor = Color.Red;
             btn_eliminar.Font = new Font("Segoe UI", 15F, FontStyle.Regular, GraphicsUnit.Point);
             btn_eliminar.ForeColor = Color.White;
-            btn_eliminar.Location = new Point(901, 72);
+            btn_eliminar.Location = new Point(813, 72);
             btn_eliminar.Name = "btn_eliminar";
-            btn_eliminar.Size = new Size(236, 47);
+            btn_eliminar.Size = new Size(209, 47);
             btn_eliminar.TabIndex = 4;
             btn_eliminar.Text = "Eliminar";
             btn_eliminar.UseVisualStyleBackColor = false;
@@ -101,7 +101,7 @@
             Controls.Add(lbl_title);
             Controls.Add(pbox_image);
             Name = "CarritoBox";
-            Size = new Size(1140, 180);
+            Size = new Size(1051, 180);
             ((System.ComponentModel.ISupportInitialize)pbox_image).EndInit();
             ResumeLayout(false);
         }

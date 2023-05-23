@@ -21,10 +21,8 @@ namespace TP1_UTN
         {
             InitializeComponent();
         }
-        public bool isAdmin { get; set; }
-
-
-
+        public bool _isAdmin;
+        public bool IsAdmin { get { return _isAdmin; } set { _isAdmin = value; } }
         private async void Productos_Load(object sender, EventArgs e)
         {
             FirebaseResponse response = await Firebase.GetAsync("productos");
@@ -37,7 +35,9 @@ namespace TP1_UTN
                 productBox.Precio = elemento.Value.Precio;
                 productBox.Stock = elemento.Value.Stock;
                 productBox.LinkImage = elemento.Value.LinkImage;
+                productBox.Fecha = elemento.Value.Fecha;
                 productBox.Id = elemento.Key;
+                productBox.IsAdmin = _isAdmin;
                 productBox.llenar_Producto();
                 flpanel_productos.Controls.Add(productBox);
             }

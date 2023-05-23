@@ -22,7 +22,13 @@ namespace TP1_UTN.Clases
         }
 
         public Administrador(): this(0,"","") { }
-
+        /// <summary>
+        /// Elimino cliente de la lista
+        /// </summary>
+        /// <param name="id">Recibo ID del cliente seleccionado</param>
+        /// <param name="rol">Recibo Rol del cliente</param>
+        /// <returns>Devuelvo string con mensaje de exito o fallo</returns>
+        /// <exception cref="Exception"></exception>
         public async Task <string> deleteClientUser(string id, string rol)
         {
             try

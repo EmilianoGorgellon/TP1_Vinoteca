@@ -40,9 +40,12 @@ namespace TP1_UTN
                     {
                         this.Hide();
                         Admin admin = new();
-                        _ = elemento.Value.IsAdmin == true ? admin.isAdmin = true : admin.isAdmin = false;
-                     
-                        admin.Show();
+                        _ = elemento.Value.IsAdmin == true ? admin._isAdmin = true : admin._isAdmin = false;
+                        admin.ShowDialog();
+                        if (admin.DialogResult == DialogResult.Cancel)
+                        {
+                            this.Show();
+                        }
 
                     }
                     lbl_credentialsError.Text = "Error, credenciales invalidas";

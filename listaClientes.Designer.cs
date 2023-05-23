@@ -48,6 +48,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.DeepSkyBlue;
             ClientSize = new Size(1156, 542);
             Controls.Add(dataGridViewPersonas);
             FormBorderStyle = FormBorderStyle.None;

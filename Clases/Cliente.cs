@@ -22,6 +22,5 @@ namespace TP1_UTN.Clases
             IsAdmin = false;
         }
        
-        // ver sobrecarga con solo pasarle user y pw y los puntos hardcodeado en 0
     }
 }

@@ -62,7 +62,7 @@
             // 
             clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agregarClienteToolStripMenuItem, verClientesToolStripMenuItem });
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(180, 22);
+            clientesToolStripMenuItem.Size = new Size(142, 22);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Visible = false;
             clientesToolStripMenuItem.VisibleChanged += Admin_Load;
@@ -85,7 +85,7 @@
             // 
             productosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agregarProductoToolStripMenuItem, verProductosToolStripMenuItem });
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(180, 22);
+            productosToolStripMenuItem.Size = new Size(142, 22);
             productosToolStripMenuItem.Text = "Productos";
             // 
             // agregarProductoToolStripMenuItem
@@ -105,14 +105,14 @@
             // carritoToolStripMenuItem
             // 
             carritoToolStripMenuItem.Name = "carritoToolStripMenuItem";
-            carritoToolStripMenuItem.Size = new Size(180, 22);
+            carritoToolStripMenuItem.Size = new Size(142, 22);
             carritoToolStripMenuItem.Text = "Carrito";
             carritoToolStripMenuItem.Click += verCarritoToolStripMenuItem;
             // 
             // cerrarSesionToolStripMenuItem
             // 
             cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            cerrarSesionToolStripMenuItem.Size = new Size(180, 22);
+            cerrarSesionToolStripMenuItem.Size = new Size(142, 22);
             cerrarSesionToolStripMenuItem.Text = "Cerrar sesion";
             cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
             // 
@@ -152,5 +152,6 @@
         private ToolStripMenuItem verProductosToolStripMenuItem;
         private ToolStripMenuItem carritoToolStripMenuItem;
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
+        private Label label1;
     }
 }

@@ -10,6 +10,9 @@
     <Compile Update="CarritoBox.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="EditProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="EditUser.cs">
       <SubType>Form</SubType>
     </Compile>

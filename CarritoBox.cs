@@ -16,11 +16,13 @@ namespace TP1_UTN
         {
             InitializeComponent();
         }
-        Carrito carrit = new Carrito();
+
         private string _nombre;
         private float _precio;
         private string _linkImage;
         private string _id;
+        Carrito carrit = new Carrito();
+
         public string Nombre { get { return _nombre; } set { _nombre = value; } }
         public float Precio { get { return _precio; } set { _precio = value; } }
         public string LinkImage { get { return _linkImage; } set { _linkImage = value; } }
@@ -29,7 +31,7 @@ namespace TP1_UTN
         public void llenar_carrito()
         {
             lbl_title.Text = _nombre;
-            lbl_price.Text = $"${_precio.ToString()}";
+            lbl_price.Text = $"${_precio}";
             lbl_cantidad.Text = "1";
             pbox_image.Image = Image.FromFile(_linkImage);
         }
