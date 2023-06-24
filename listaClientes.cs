@@ -68,7 +68,7 @@ namespace TP1_UTN
         {
 
             dataGridViewPersonas.Rows.Clear();
-            FirebaseResponse response = await Firebase.GetAsync("users");
+            FirebaseResponse response = await Firebase.GetElement("users");
             Dictionary<string, Cliente> lista = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(response.Body);
 
             foreach (KeyValuePair<string, Cliente> elemento in lista)

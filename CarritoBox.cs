@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TP1_UTN.Clases;
 
 namespace TP1_UTN
 {
@@ -29,10 +30,7 @@ namespace TP1_UTN
         public string LinkImage { get { return _linkImage; } set { _linkImage = value; } }
         public string Id { get { return _id; } set { _id = value; } }
         public int Cantidad { get { return _cantidad;  } set { _cantidad = value; } }
-
-        /// <summary>
-        /// Lleno el carritoBox con los valores
-        /// </summary>
+        public string IdUsername { get; set; } 
         public void Llenar_carrito()
         {
             lbl_title.Text = _nombre;
@@ -48,7 +46,7 @@ namespace TP1_UTN
         /// <param name="e"></param>
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show($"{_nombre} - {_precio} - {_linkImage}");
+            Logs.SetLogs(IdUsername, $"Elimino el producto {Nombre}");
             MessageBox.Show(carrit.remove_product(_id));
         }
     }

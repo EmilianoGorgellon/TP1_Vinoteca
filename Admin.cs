@@ -21,7 +21,9 @@ namespace TP1_UTN
             InitializeComponent();
         }
         public bool _isAdmin;
+        private string _idUsername;
 
+        public string IdUsername { get { return _idUsername; } set { _idUsername = value; } }
         private void showProduct()
         {
             Productos producto = new Productos();
@@ -30,6 +32,7 @@ namespace TP1_UTN
             panel_admin.Controls.Clear();
             panel_admin.Controls.Add(producto);
             producto.IsAdmin = _isAdmin;
+            producto.IdUsername = IdUsername;
             producto.Show();
         }
 
@@ -49,16 +52,26 @@ namespace TP1_UTN
             panel_admin.Controls.Clear();
             carrit.TopLevel = false;
             carrit.Dock = DockStyle.Fill;
+            carrit.IdUsername = IdUsername;
             panel_admin.Controls.Add(carrit);
             carrit.Show();
-
         }
-
+        private void showLogs()
+        {
+            Log log = new Log();
+            panel_admin.Controls.Clear();
+            log.TopLevel = false;
+            log.Dock = DockStyle.Fill;
+            panel_admin.Controls.Add(log);
+            log.Show();
+        }
         private void Admin_Load(object sender, EventArgs e)
         {
             if (_isAdmin)
             {
                 clientesToolStripMenuItem.Visible = true;
+                agregarProductoToolStripMenuItem.Visible = true;
+                logToolStripMenuItem.Visible = true;
             }
             showProduct();
         }
@@ -94,6 +107,11 @@ namespace TP1_UTN
         private void cerrarSesionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void logToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            showLogs();
         }
     }
 }

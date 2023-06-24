@@ -31,7 +31,7 @@ namespace TP1_UTN.Clases
         /// <param name="path"></param>
         /// <returns>Lista de clientes</returns>
         /// <exception cref="Exception"></exception>
-        public static async Task<FirebaseResponse> GetAsync(string path)
+        public static async Task<FirebaseResponse> GetElement(string path)
         {
             try
             {
@@ -43,17 +43,18 @@ namespace TP1_UTN.Clases
             }
         }
         /// <summary>
-        /// Actualizo usuario cliente 
+        /// Actualizo item en la base de datos
         /// </summary>
-        /// <param name="id">Recibo id del cliente para actualizar</param>
-        /// <param name="client">Recibo todos los elementos del Cliente</param>
-        /// <returns>Respuesta del firebase</returns>
+        /// <typeparam name="T">Dato generico para que sea reutilizable</typeparam>
+        /// <param name="path">Path donde queremos actualizar</param>
+        /// <param name="item">Item con los cambios dados</param>
+        /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public static async Task<FirebaseResponse> UpdateClient(string id, Cliente client)
+        public static async Task<FirebaseResponse> UpdateElement<T>(string path, T item)
         {
             try 
             {
-                return await Client.UpdateAsync("users/" + id, client);
+                return await Client.UpdateAsync(path, item);
             }
             catch (Exception ex)
             {
@@ -61,66 +62,33 @@ namespace TP1_UTN.Clases
             }
         }
         /// <summary>
-        /// Actualizo producto
+        /// Creo un item en un path determinado en la base de datos
         /// </summary>
-        /// <param name="id">Recibo ID del producto</param>
-        /// <param name="product">Recibo todos los elementos del producto</param>
-        /// <returns>Respuesta del firebase</returns>
+        /// <typeparam name="T">Dato generico para que sea reutilizable</typeparam>
+        /// <param name="path">Path donde creare el nuevo elemento</param>
+        /// <param name="item">Item que se va a crear en la base de datos</param>
+        /// <returns></returns>
         /// <exception cref="Exception"></exception>
-        public static async Task<FirebaseResponse> UpdateProduct(string id, Producto product)
-        {
-            try
-            {
-                return await Client.UpdateAsync("productos/" + id, product);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
-        /// <summary>
-        /// Creo cliente y genero nuevo ID
-        /// </summary>
-        /// <param name="client">Recibo todos los parametros necesarios para crear el cliente</param>
-        /// <returns>Respuesta del firebase</returns>
-        /// <exception cref="Exception"></exception>
-        public static async Task<FirebaseResponse> SetAsyncClient(Cliente client)
+        public static async Task<FirebaseResponse> SetElement<T>(string path, T item)
         {
             try
             {
                 string IdGenerado = Guid.NewGuid().ToString("N");
-                return await Client.SetAsync("users/" + IdGenerado, client);
+                return await Client.SetAsync(path + IdGenerado, item);
             }
             catch (Exception ex)
             {
                 throw new Exception(ex.Message);
             }
-           
         }
-        /// <summary>
-        /// Creo producto y genero nuevo ID
-        /// </summary>
-        /// <param name="product">Recibo todos los parametros necesarios para crear el producto</param>
-        /// <returns>Respuesta del firebase</returns>
-        /// <exception cref="Exception"></exception>
-        public static async Task<FirebaseResponse> SetAsyncProduct(Producto product)
-        {
-            try
-            {
-                string IdGenerado = Guid.NewGuid().ToString("N");
-                return await Client.SetAsync("productos/" + IdGenerado, product);
-            } catch (Exception ex)
-            {
-                throw new Exception(ex.Message);
-            }
-        }
+
         /// <summary>
         /// Elimino un elemento segun Path
         /// </summary>
         /// <param name="pathId">Recibo el path y el ID del elemento seleccionado</param>
         /// <returns>Respuesta del firebase</returns>
         /// <exception cref="Exception"></exception>
-        public static async Task<FirebaseResponse> deleteAsync(string pathId)
+        public static async Task<FirebaseResponse> DeleteElement(string pathId)
         {
             try
             {
@@ -131,5 +99,6 @@ namespace TP1_UTN.Clases
                 throw new Exception(ex.Message);
             }
         }
+
     }
 }

@@ -21,6 +21,11 @@ namespace TP1_UTN
             InitializeComponent();
         }
         private static List<string> listaProductosId = new List<string>();
+        private string _idUsername;
+        private float totalPrecio = 0;
+        public string IdUsername { get { return _idUsername; } set { _idUsername = value; } }
+
+
         /// <summary>
         /// Agrego el id del producto de la lista
         /// </summary>
@@ -40,6 +45,7 @@ namespace TP1_UTN
         {
             if (listaProductosId.Remove(id))
             {
+                this.Close();
                 return "Se elimino producto";
             }
             else
@@ -54,9 +60,9 @@ namespace TP1_UTN
         /// <param name="e"></param>
         private async void Carrito_Load(object sender, EventArgs e)
         {
-            FirebaseResponse response = await Firebase.GetAsync("productos");
+            FirebaseResponse response = await Firebase.GetElement("productos");
             Dictionary<string, Producto> lista = JsonConvert.DeserializeObject<Dictionary<string, Producto>>(response.Body);
-            float totalPrecio = 0;
+            
             foreach (string id in listaProductosId)
             {
                 foreach (KeyValuePair<string, Producto> elemento in lista)
@@ -80,6 +86,7 @@ namespace TP1_UTN
                             carritoNuevo.Id = elemento.Key;
                             carritoNuevo.Llenar_carrito();
                             totalPrecio += elemento.Value.Precio;
+                            carritoNuevo.IdUsername = IdUsername;
                             flpanel_carrito.Controls.Add(carritoNuevo);
                         }
 
@@ -97,22 +104,51 @@ namespace TP1_UTN
         {
             try
             {
-                FirebaseResponse response = await Firebase.GetAsync("productos");
-                Dictionary<string, Producto> lista = JsonConvert.DeserializeObject<Dictionary<string, Producto>>(response.Body);
-
-                foreach (string id in listaProductosId)
-                {
-                    Producto.ReducirStockProducto(id);
-                }
-                MessageBox.Show("Felicitaciones!! Se hizo correctamente la compra");
-
+                MessageBox.Show(await Producto.ComprarProductos(listaProductosId, _idUsername, totalPrecio));
                 listaProductosId.Clear();
-                this.Close();
-            }
-            catch (Exception ex)
+                totalPrecio = 0;
+               
+            } catch (Exception ex) 
             {
                 MessageBox.Show(ex.Message);
             }
+            this.Close();
+            //try
+            //{
+            //    FirebaseResponse response = await Firebase.GetElement("productos");
+            //    Dictionary<string, Producto> lista = JsonConvert.DeserializeObject<Dictionary<string, Producto>>(response.Body);
+
+            //    foreach (string id in listaProductosId)
+            //    {
+            //        Producto.ReducirStockProducto(id);
+            //    }
+
+            //    FirebaseResponse responseClient = await Firebase.GetElement("users");
+            //    Dictionary<string, Cliente> listaClientes = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(responseClient.Body);
+
+            //    foreach (KeyValuePair<string, Cliente> elemento in listaClientes)
+            //    {
+            //        if (_idUsername == elemento.Key)
+            //        {
+            //            int puntos = (int)totalPrecio / 99;
+            //            Cliente client = new Cliente(elemento.Value.Usuario, elemento.Value.Password, elemento.Value.Puntos + puntos);
+            //            FirebaseResponse responseUsuarioActualizado = await Firebase.UpdateElement($"users/{_idUsername}", client);
+            //            if (responseUsuarioActualizado.StatusCode == System.Net.HttpStatusCode.OK)
+            //            {
+            //                Logs.SetLogs(IdUsername, $"El usuario: {elemento.Value.Usuario} hizo una compra de {totalPrecio}");
+            //                MessageBox.Show($"Se le agrego {puntos} a {elemento.Value.Usuario}");
+            //            }
+            //        }
+            //    }
+            //    listaProductosId.Clear();
+
+            //    MessageBox.Show("Felicitaciones!! Se hizo correctamente la compra");
+            //    this.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
 
         }
     }

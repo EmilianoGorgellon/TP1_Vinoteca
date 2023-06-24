@@ -37,7 +37,7 @@ namespace TP1_UTN.Clases
         {
             try
             {
-                FirebaseResponse response = await Firebase.GetAsync("productos");
+                FirebaseResponse response = await Firebase.GetElement("productos");
                 Dictionary<string, Producto> lista = JsonConvert.DeserializeObject<Dictionary<string, Producto>>(response.Body);
 
                 foreach (KeyValuePair<string, Producto> elemento in lista)
@@ -47,7 +47,7 @@ namespace TP1_UTN.Clases
                         DateTime fechaActual = DateTime.Now;
                         string fechaFormateada = fechaActual.ToString("dd/MM/yyyy HH:mm");
                         Producto product = new Producto(elemento.Value.Nombre, elemento.Value.Precio, elemento.Value.Stock - 1, elemento.Value.LinkImage, fechaFormateada);
-                        FirebaseResponse responseUpdate = await Firebase.UpdateProduct(id, product);
+                        FirebaseResponse responseUpdate = await Firebase.UpdateElement($"productos/{id}", product);
                         if (responseUpdate.StatusCode == System.Net.HttpStatusCode.OK)
                         {
                             return;
@@ -79,7 +79,7 @@ namespace TP1_UTN.Clases
         {
             try
             {
-                FirebaseResponse response = await Firebase.GetAsync("productos");
+                FirebaseResponse response = await Firebase.GetElement("productos");
                 Dictionary<string, Producto> lista = JsonConvert.DeserializeObject<Dictionary<string, Producto>>(response.Body);
                 foreach (KeyValuePair<string, Producto> elemento in lista)
                 {
@@ -88,7 +88,7 @@ namespace TP1_UTN.Clases
                         DateTime fechaActual = DateTime.Now;
                         string fechaFormateada = fechaActual.ToString("dd/MM/yyyy HH:mm");
                         Producto product = new Producto(nombre, precio, stock, linkImage, fechaFormateada);
-                        FirebaseResponse responseUpdate = await Firebase.UpdateProduct(id, product);
+                        FirebaseResponse responseUpdate = await Firebase.UpdateElement($"productos/{id}", product);
                         if (responseUpdate.StatusCode == System.Net.HttpStatusCode.OK)
                         {
                             return;
@@ -106,6 +106,44 @@ namespace TP1_UTN.Clases
             {
                 throw new Exception(ex.Message);
             }
+        }
+
+        public async static Task<string> ComprarProductos(List<string> listaProductosId, string _idUsername, float totalPrecio)
+        {
+            try
+            {
+                FirebaseResponse response = await Firebase.GetElement("productos");
+                Dictionary<string, Producto> lista = JsonConvert.DeserializeObject<Dictionary<string, Producto>>(response.Body);
+
+                foreach (string id in listaProductosId)
+                {
+                    ReducirStockProducto(id);
+                }
+
+                FirebaseResponse responseClient = await Firebase.GetElement("users");
+                Dictionary<string, Cliente> listaClientes = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(responseClient.Body);
+
+                foreach (KeyValuePair<string, Cliente> elemento in listaClientes)
+                {
+                    if (_idUsername == elemento.Key)
+                    {
+                        int puntos = (int)totalPrecio / 99;
+                        Cliente client = new Cliente(elemento.Value.Usuario, elemento.Value.Password, elemento.Value.Puntos + puntos);
+                        FirebaseResponse responseUsuarioActualizado = await Firebase.UpdateElement($"users/{_idUsername}", client);
+                        if (responseUsuarioActualizado.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            Logs.SetLogs(_idUsername, $"El usuario: {elemento.Value.Usuario} hizo una compra de {totalPrecio}");
+                            return $"Felicitaciones, se hizo correctamente la compra y se le agrego {puntos} a {elemento.Value.Usuario}!!";
+                        }
+                    }
+                }
+                throw new Exception("Error en la compra");
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
         }
     }
 }

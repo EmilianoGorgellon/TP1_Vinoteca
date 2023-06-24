@@ -52,7 +52,7 @@ namespace TP1_UTN
             if (!string.IsNullOrEmpty(txtbox_user.Text) && !string.IsNullOrEmpty(txb_password.Text) && int.TryParse(numeric_puntos.Text, out int puntos))
             {
                 Cliente client = new Cliente(txtbox_user.Text, txb_password.Text, puntos);
-                FirebaseResponse response = await Firebase.UpdateClient(_id, client);
+                FirebaseResponse response = await Firebase.UpdateElement($"users/{_id}", client);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     MessageBox.Show("Se actualizo el cliente");

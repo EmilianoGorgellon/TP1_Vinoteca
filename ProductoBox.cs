@@ -19,12 +19,14 @@ namespace TP1_UTN
         {
             InitializeComponent();
         }
+
         private string _nombre;
         private float _precio;
         private int _stock;
         private string _linkImage;
         private string _fecha;
         private string _id;
+
         private bool _isAdmin;
 
         Carrito carrit = new Carrito();
@@ -35,6 +37,8 @@ namespace TP1_UTN
         public string LinkImage { get { return _linkImage; } set { _linkImage = value; } }
         public string Id { get { return _id; } set { _id = value; } }
         public bool IsAdmin { get { return _isAdmin; } set { _isAdmin = value; } }
+        public string IdUsername { get ; set ; }
+
 
         public void llenar_Producto()
         {
@@ -49,6 +53,7 @@ namespace TP1_UTN
         {
             if (_stock > 0)
             {
+                Logs.SetLogs(IdUsername, $"Agrego el producto {Nombre}");
                 MessageBox.Show(carrit.add_producto(_id));
             }
             else

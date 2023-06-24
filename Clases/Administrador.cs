@@ -11,13 +11,13 @@ namespace TP1_UTN.Clases
 {
     public class Administrador : Persona
     {
-        private int _dni;
-        public int Dni { get { return _dni; } set { _dni = value; } }
-        public Administrador(int dni, string user, string pw) 
+        private int _puntos;
+        public int Puntos { get { return _puntos; } set { _puntos = value; } }
+        public Administrador(int puntos, string user, string pw) 
         {
             Usuario = user;
             Password = pw;
-            Dni = dni;
+            Puntos = puntos;
             IsAdmin = true;
         }
 
@@ -35,7 +35,7 @@ namespace TP1_UTN.Clases
             {
                 if (id != null && rol != "Administrador")
                 {
-                    FirebaseResponse response = await Firebase.deleteAsync($"users/{id}");
+                    FirebaseResponse response = await Firebase.DeleteElement($"users/{id}");
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
                         return $"Se elimino usuario con id: {id}";

@@ -30,6 +30,7 @@
         {
             menuStrip1 = new MenuStrip();
             menuToolStripMenuItem = new ToolStripMenuItem();
+            logToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             agregarClienteToolStripMenuItem = new ToolStripMenuItem();
             verClientesToolStripMenuItem = new ToolStripMenuItem();
@@ -53,16 +54,24 @@
             // 
             // menuToolStripMenuItem
             // 
-            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, productosToolStripMenuItem, carritoToolStripMenuItem, cerrarSesionToolStripMenuItem });
+            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { logToolStripMenuItem, clientesToolStripMenuItem, productosToolStripMenuItem, carritoToolStripMenuItem, cerrarSesionToolStripMenuItem });
             menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             menuToolStripMenuItem.Size = new Size(50, 20);
             menuToolStripMenuItem.Text = "Menu";
+            // 
+            // informesToolStripMenuItem
+            // 
+            logToolStripMenuItem.Name = "logToolStripMenuItem";
+            logToolStripMenuItem.Size = new Size(180, 22);
+            logToolStripMenuItem.Text = "Logs";
+            logToolStripMenuItem.Visible = false;
+            logToolStripMenuItem.Click += logToolStripMenuItem_Click;
             // 
             // clientesToolStripMenuItem
             // 
             clientesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agregarClienteToolStripMenuItem, verClientesToolStripMenuItem });
             clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            clientesToolStripMenuItem.Size = new Size(142, 22);
+            clientesToolStripMenuItem.Size = new Size(180, 22);
             clientesToolStripMenuItem.Text = "Clientes";
             clientesToolStripMenuItem.Visible = false;
             clientesToolStripMenuItem.VisibleChanged += Admin_Load;
@@ -85,7 +94,7 @@
             // 
             productosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { agregarProductoToolStripMenuItem, verProductosToolStripMenuItem });
             productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(142, 22);
+            productosToolStripMenuItem.Size = new Size(180, 22);
             productosToolStripMenuItem.Text = "Productos";
             // 
             // agregarProductoToolStripMenuItem
@@ -93,6 +102,7 @@
             agregarProductoToolStripMenuItem.Name = "agregarProductoToolStripMenuItem";
             agregarProductoToolStripMenuItem.Size = new Size(168, 22);
             agregarProductoToolStripMenuItem.Text = "Agregar producto";
+            agregarProductoToolStripMenuItem.Visible = false;
             agregarProductoToolStripMenuItem.Click += agregarProductoToolStripMenuItem_Click;
             // 
             // verProductosToolStripMenuItem
@@ -105,14 +115,14 @@
             // carritoToolStripMenuItem
             // 
             carritoToolStripMenuItem.Name = "carritoToolStripMenuItem";
-            carritoToolStripMenuItem.Size = new Size(142, 22);
+            carritoToolStripMenuItem.Size = new Size(180, 22);
             carritoToolStripMenuItem.Text = "Carrito";
             carritoToolStripMenuItem.Click += verCarritoToolStripMenuItem;
             // 
             // cerrarSesionToolStripMenuItem
             // 
             cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            cerrarSesionToolStripMenuItem.Size = new Size(142, 22);
+            cerrarSesionToolStripMenuItem.Size = new Size(180, 22);
             cerrarSesionToolStripMenuItem.Text = "Cerrar sesion";
             cerrarSesionToolStripMenuItem.Click += cerrarSesionToolStripMenuItem_Click;
             // 
@@ -127,11 +137,15 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSizeMode = AutoSizeMode.GrowAndShrink;
             ClientSize = new Size(1148, 561);
             Controls.Add(panel_admin);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            MaximizeBox = false;
+            MinimizeBox = false;
             Name = "Admin";
+            ShowIcon = false;
             Text = "Vinoteca";
             Load += Admin_Load;
             menuStrip1.ResumeLayout(false);
@@ -152,5 +166,6 @@
         private ToolStripMenuItem verProductosToolStripMenuItem;
         private ToolStripMenuItem carritoToolStripMenuItem;
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
+        private ToolStripMenuItem logToolStripMenuItem;
     }
 }

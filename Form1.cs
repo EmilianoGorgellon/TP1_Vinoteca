@@ -7,6 +7,7 @@ using Microsoft.VisualBasic.ApplicationServices;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Text;
+using System.Xml.Linq;
 using TP1_UTN.Clases;
 
 namespace TP1_UTN
@@ -29,35 +30,35 @@ namespace TP1_UTN
         /// <param name="e"></param>
         private async void btn_login_Click(object sender, EventArgs e)
         {
-            string user = txtbox_user.Text;
-            string pw = txb_password.Text;
-
-            if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(pw))
+            try
             {
-                FirebaseResponse response = await Firebase.GetAsync("users");
-                Dictionary<string, Cliente> lista = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(response.Body);
+                string user = txtbox_user.Text;
+                string pw = txb_password.Text;
 
-                foreach (KeyValuePair<string, Cliente> elemento in lista)
+                if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(pw))
                 {
-                    if (elemento.Value.Usuario == user && elemento.Value.Password == pw)
+                    var data = await Cliente.Login(user, pw);
+                   
+                    this.Hide();
+                    Admin admin = new();
+                    admin.IdUsername = data.userId;
+                    admin._isAdmin = data.isAdmin;
+                    admin.ShowDialog();
+                    if (admin.DialogResult == DialogResult.Cancel)
                     {
-                        this.Hide();
-                        Admin admin = new();
-                        _ = elemento.Value.IsAdmin == true ? admin._isAdmin = true : admin._isAdmin = false;
-                        admin.ShowDialog();
-                        if (admin.DialogResult == DialogResult.Cancel)
-                        {
-                            this.Show();
-                        }
-
+                        this.Show();
                     }
-                    lbl_credentialsError.Text = "Error, credenciales invalidas";
                 }
-            }
-            else
+                else
+                {
+                    lbl_credentialsError.Text = "Error, debe agregar valores.";
+                }
+            } catch (Exception ex)
             {
-                MessageBox.Show("Debe ingresar usuario y/o contraseña");
+                MessageBox.Show(ex.Message);
             }
+         
+
         }
         /// <summary>
         /// Registra un usuario

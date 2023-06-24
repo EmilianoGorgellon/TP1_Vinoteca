@@ -32,24 +32,20 @@ namespace TP1_UTN
         }
         private async void btn_save_Click(object sender, EventArgs e)
         {
-            string user = txtbox_user.Text;
-            string pw = txb_password.Text;
-            if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(pw) && int.TryParse(numeric_puntos.Text, out int puntos))
+            try
             {
-                Cliente client = new Cliente(user, pw, puntos);
-
-                FirebaseResponse response = await Firebase.SetAsyncClient(client);
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                string user = txtbox_user.Text;
+                string pw = txb_password.Text;
+                if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(pw) && int.TryParse(numeric_puntos.Text, out int puntos))
                 {
-                    MessageBox.Show("Se creo satisfactoriamente el usuario");
+                    MessageBox.Show(await Cliente.CreateUser(user, pw, puntos));
                 }
-                else
-                {
-                    MessageBox.Show("Error no se pudo crear el usuario");
-                }
-
-                this.Close();
+            } catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
+            this.Close();
+
         }
 
 

@@ -31,7 +31,7 @@ namespace TP1_UTN
 
                 Producto product = new Producto(name, precio, stock, linkImage, fechaFormateada);
 
-                FirebaseResponse response = await Firebase.SetAsyncProduct(product);
+                FirebaseResponse response = await Firebase.SetElement("productos/", product);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
                     MessageBox.Show("Se creo satisfactoriamente un nuevo producto");
