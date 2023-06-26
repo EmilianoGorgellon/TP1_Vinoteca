@@ -96,6 +96,8 @@ namespace TP1_UTN
         private void agregarClienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Registrarse register = new Registrarse();
+            register.ConfirmacionCierreHandler += ConfirmarCierreFormulario;
+
             register.isAdmin = _isAdmin;
             register.Show();
         }
@@ -132,7 +134,13 @@ namespace TP1_UTN
         {
             try
             {
-                MessageBox.Show(await Informes.ExportarProductosAJSON());
+                if (await Informes.ExportarProductosAJSON("productos"))
+                {
+                    MessageBox.Show("Se creo satisfactoriamente el archivo productos.json");
+                } else
+                {
+                    MessageBox.Show("No se pudo crear el archivo productos.json");
+                }
             }
             catch (Exception ex)
             {
@@ -150,6 +158,11 @@ namespace TP1_UTN
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private bool ConfirmarCierreFormulario()
+        {
+            DialogResult result = MessageBox.Show("¿Está seguro que desea cerrar el formulario?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            return (result == DialogResult.Yes);
         }
     }
 }

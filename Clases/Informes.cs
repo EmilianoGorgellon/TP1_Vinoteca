@@ -34,20 +34,20 @@ namespace TP1_UTN.Clases
             }
         }
 
-        public async static Task<string> ExportarProductosAJSON()
+        public async static Task<bool> ExportarProductosAJSON(string path)
         {
             try
             {
-                FirebaseResponse response = await Firebase.GetElement("productos");
+                FirebaseResponse response = await Firebase.GetElement(path);
                 Dictionary<string, Producto> dictionaryProductos = response.ResultAs<Dictionary<string, Producto>>();
                 List<Producto> listaProductos = dictionaryProductos.Values.ToList();
                 string json = JsonConvert.SerializeObject(listaProductos);
                 File.WriteAllText("C:\\Users\\Gorgellon\\source\\repos\\TP1_UTN\\Resources\\productos.json", json);
-                return "Se creo satisfactoriamente el archivo productos.json";
+                return true;
             }
-            catch (Exception ex)
+            catch 
             {
-                throw new Exception(ex.Message);
+                return false;
             }
         }
 

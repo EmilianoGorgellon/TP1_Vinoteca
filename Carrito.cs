@@ -16,6 +16,7 @@ namespace TP1_UTN
 {
     public partial class Carrito : Form
     {
+
         public Carrito()
         {
             InitializeComponent();
@@ -107,7 +108,6 @@ namespace TP1_UTN
                 MessageBox.Show(await Producto.ComprarProductos(listaProductosId, _idUsername, totalPrecio));
                 listaProductosId.Clear();
                 totalPrecio = 0;
-               
             } catch (Exception ex) 
             {
                 MessageBox.Show(ex.Message);

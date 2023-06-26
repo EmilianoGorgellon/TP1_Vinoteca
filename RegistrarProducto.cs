@@ -14,19 +14,20 @@ namespace TP1_UTN
 {
     public partial class RegistrarProducto : Form
     {
+        
         public RegistrarProducto()
         {
             InitializeComponent();
         }
+   
 
         private static string linkImage;
-
         private async void btn_add_product_Click(object sender, EventArgs e)
         {
             string nombre = txb_name.Text;
-            if (!string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(linkImage) && float.TryParse(numeric_price.Text, out float precio) && int.TryParse(numeric_stock.Text, out int stock))
+            if (!string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(linkImage) && float.TryParse(numeric_price.Text, out float precio) && int.TryParse(numeric_stock.Text, out int stock) && await Producto.AgregarProducto(nombre, precio, stock, linkImage))
             {
-                MessageBox.Show(await Producto.AgregarProducto(nombre, precio, stock, linkImage));
+                Producto.InformarProductoAgregado += ImprimirMensaje;
             }
             else
             {
@@ -34,7 +35,10 @@ namespace TP1_UTN
             }
             this.Close();
         }
-
+        private void ImprimirMensaje(string mensaje)
+        {
+            MessageBox.Show(mensaje);
+        }
         private void btn_select_image_Click(object sender, EventArgs e)
         {
             OpenFileDialog imageSeleccionada = new OpenFileDialog();
@@ -47,5 +51,7 @@ namespace TP1_UTN
             }
 
         }
+
+
     }
 }

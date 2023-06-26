@@ -24,7 +24,6 @@ namespace TP1_UTN.Clases
             IsAdmin = false;
         }
 
-        //public static async Task<FirebaseResponse> UpdateElement<T>(string path, T item)
 
         public async static Task<dynamic> Login(string user, string pw)
         {

@@ -115,7 +115,7 @@ namespace TP1_UTN
                 if (dataGridViewLog.Columns[e.ColumnIndex].Name == "btn_delete")
                 {
                     string id = (string)dataGridViewLog.Rows[e.RowIndex].Cells[3].Value;
-                    Logs.DeleteLogs($"logs/{id}");
+                    await Logs.DeleteLogs($"logs/{id}");
                     FillDataToGrid();
                 }
             }

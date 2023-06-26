@@ -11,6 +11,7 @@ namespace TP1_UTN.Clases
 {
     public class Producto
     {
+        public static event Action<string> InformarProductoAgregado;
         private string _nombre;
         private float _precio;
         private int _stock;
@@ -147,7 +148,7 @@ namespace TP1_UTN.Clases
 
         }
 
-        public async static Task<string> AgregarProducto(string nombre, float precio, int stock, string linkImage)
+        public async static Task<bool> AgregarProducto(string nombre, float precio, int stock, string linkImage)
         {
             try
             {
@@ -166,19 +167,22 @@ namespace TP1_UTN.Clases
                 FirebaseResponse response = await Firebase.SetElement("productos/", data);
                 if (response.StatusCode == System.Net.HttpStatusCode.OK)
                 {
-                    return "Se creo satisfactoriamente un nuevo producto";
+                    InformarProductoAgregado?.Invoke("Se creo producto nuevo");
+                    return true;
                 }
                 else
                 {
-                    return $"Error: ${response.ToString()}";
+                    return false;
                 }
                 
             }
-            catch (Exception ex)
+            catch
             {
-                return ex.Message;
+                return false;
             }
 
         }
+
+        
     }
 }

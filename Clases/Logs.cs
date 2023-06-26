@@ -43,7 +43,7 @@ namespace TP1_UTN.Clases
         }
 
 
-        public async static void DeleteLogs(string path)
+        public async static Task<bool> DeleteLogs(string path)
         {
             try
             {
@@ -52,18 +52,18 @@ namespace TP1_UTN.Clases
                     FirebaseResponse response = await Firebase.DeleteElement(path);
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        return;
+                        return true;
                     }
                     else
                     {
-                        throw new Exception(response.StatusCode.ToString());
+                        return false;
                     }
                 }
-
+                return false;
             }
-            catch (Exception ex)
+            catch 
             {
-                throw new Exception(ex.Message);
+                return false;
             }
         }
 

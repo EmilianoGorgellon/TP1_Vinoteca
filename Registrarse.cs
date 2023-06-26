@@ -19,8 +19,18 @@ namespace TP1_UTN
         {
             InitializeComponent();
         }
-
+        public delegate bool ConfirmacionCierreDelegate();
         public bool isAdmin { get; set; }
+
+
+        private ConfirmacionCierreDelegate confirmacionCierreHandler;
+
+        public ConfirmacionCierreDelegate ConfirmacionCierreHandler
+        {
+            get { return confirmacionCierreHandler; }
+            set { confirmacionCierreHandler = value; }
+        }
+
 
         private void Registrarse_Load(object sender, EventArgs e)
         {
@@ -48,6 +58,19 @@ namespace TP1_UTN
 
         }
 
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (ConfirmacionCierreHandler != null)
+            {
+                bool confirmacion = ConfirmacionCierreHandler.Invoke();
 
+                if (!confirmacion)
+                {
+                    e.Cancel = true; // Cancelar el cierre del formulario
+                }
+            }
+
+            base.OnFormClosing(e);
+        }
     }
 }
