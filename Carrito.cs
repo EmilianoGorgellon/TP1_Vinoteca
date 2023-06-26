@@ -113,43 +113,6 @@ namespace TP1_UTN
                 MessageBox.Show(ex.Message);
             }
             this.Close();
-            //try
-            //{
-            //    FirebaseResponse response = await Firebase.GetElement("productos");
-            //    Dictionary<string, Producto> lista = JsonConvert.DeserializeObject<Dictionary<string, Producto>>(response.Body);
-
-            //    foreach (string id in listaProductosId)
-            //    {
-            //        Producto.ReducirStockProducto(id);
-            //    }
-
-            //    FirebaseResponse responseClient = await Firebase.GetElement("users");
-            //    Dictionary<string, Cliente> listaClientes = JsonConvert.DeserializeObject<Dictionary<string, Cliente>>(responseClient.Body);
-
-            //    foreach (KeyValuePair<string, Cliente> elemento in listaClientes)
-            //    {
-            //        if (_idUsername == elemento.Key)
-            //        {
-            //            int puntos = (int)totalPrecio / 99;
-            //            Cliente client = new Cliente(elemento.Value.Usuario, elemento.Value.Password, elemento.Value.Puntos + puntos);
-            //            FirebaseResponse responseUsuarioActualizado = await Firebase.UpdateElement($"users/{_idUsername}", client);
-            //            if (responseUsuarioActualizado.StatusCode == System.Net.HttpStatusCode.OK)
-            //            {
-            //                Logs.SetLogs(IdUsername, $"El usuario: {elemento.Value.Usuario} hizo una compra de {totalPrecio}");
-            //                MessageBox.Show($"Se le agrego {puntos} a {elemento.Value.Usuario}");
-            //            }
-            //        }
-            //    }
-            //    listaProductosId.Clear();
-
-            //    MessageBox.Show("Felicitaciones!! Se hizo correctamente la compra");
-            //    this.Close();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
-
         }
     }
 }

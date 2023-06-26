@@ -1,6 +1,6 @@
 ﻿namespace TP1_UTN
 {
-    partial class Admin
+    partial class Home
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,6 @@
         {
             menuStrip1 = new MenuStrip();
             menuToolStripMenuItem = new ToolStripMenuItem();
-            logToolStripMenuItem = new ToolStripMenuItem();
             clientesToolStripMenuItem = new ToolStripMenuItem();
             agregarClienteToolStripMenuItem = new ToolStripMenuItem();
             verClientesToolStripMenuItem = new ToolStripMenuItem();
@@ -38,6 +37,11 @@
             agregarProductoToolStripMenuItem = new ToolStripMenuItem();
             verProductosToolStripMenuItem = new ToolStripMenuItem();
             carritoToolStripMenuItem = new ToolStripMenuItem();
+            logToolStripMenuItem = new ToolStripMenuItem();
+            informesToolStripMenuItem = new ToolStripMenuItem();
+            exportarACSVToolStripMenuItem = new ToolStripMenuItem();
+            exportarAJSONToolStripMenuItem = new ToolStripMenuItem();
+            exportarAPDFToolStripMenuItem = new ToolStripMenuItem();
             cerrarSesionToolStripMenuItem = new ToolStripMenuItem();
             panel_admin = new Panel();
             menuStrip1.SuspendLayout();
@@ -54,18 +58,10 @@
             // 
             // menuToolStripMenuItem
             // 
-            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { logToolStripMenuItem, clientesToolStripMenuItem, productosToolStripMenuItem, carritoToolStripMenuItem, cerrarSesionToolStripMenuItem });
+            menuToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { clientesToolStripMenuItem, productosToolStripMenuItem, carritoToolStripMenuItem, logToolStripMenuItem, informesToolStripMenuItem, cerrarSesionToolStripMenuItem });
             menuToolStripMenuItem.Name = "menuToolStripMenuItem";
             menuToolStripMenuItem.Size = new Size(50, 20);
             menuToolStripMenuItem.Text = "Menu";
-            // 
-            // informesToolStripMenuItem
-            // 
-            logToolStripMenuItem.Name = "logToolStripMenuItem";
-            logToolStripMenuItem.Size = new Size(180, 22);
-            logToolStripMenuItem.Text = "Logs";
-            logToolStripMenuItem.Visible = false;
-            logToolStripMenuItem.Click += logToolStripMenuItem_Click;
             // 
             // clientesToolStripMenuItem
             // 
@@ -119,6 +115,43 @@
             carritoToolStripMenuItem.Text = "Carrito";
             carritoToolStripMenuItem.Click += verCarritoToolStripMenuItem;
             // 
+            // logToolStripMenuItem
+            // 
+            logToolStripMenuItem.Name = "logToolStripMenuItem";
+            logToolStripMenuItem.Size = new Size(180, 22);
+            logToolStripMenuItem.Text = "Logs";
+            logToolStripMenuItem.Visible = false;
+            logToolStripMenuItem.Click += logToolStripMenuItem_Click;
+            // 
+            // informesToolStripMenuItem
+            // 
+            informesToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exportarACSVToolStripMenuItem, exportarAJSONToolStripMenuItem, exportarAPDFToolStripMenuItem });
+            informesToolStripMenuItem.Name = "informesToolStripMenuItem";
+            informesToolStripMenuItem.Size = new Size(180, 22);
+            informesToolStripMenuItem.Text = "Informes";
+            informesToolStripMenuItem.Visible = false;
+            // 
+            // exportarACSVToolStripMenuItem
+            // 
+            exportarACSVToolStripMenuItem.Name = "exportarACSVToolStripMenuItem";
+            exportarACSVToolStripMenuItem.Size = new Size(180, 22);
+            exportarACSVToolStripMenuItem.Text = "Exportar a CSV";
+            exportarACSVToolStripMenuItem.Click += exportarACSVToolStripMenuItem_Click;
+            // 
+            // exportarAJSONToolStripMenuItem
+            // 
+            exportarAJSONToolStripMenuItem.Name = "exportarAJSONToolStripMenuItem";
+            exportarAJSONToolStripMenuItem.Size = new Size(180, 22);
+            exportarAJSONToolStripMenuItem.Text = "Exportar a JSON";
+            exportarAJSONToolStripMenuItem.Click += exportarAJSONToolStripMenuItem_Click;
+            // 
+            // exportarAPDFToolStripMenuItem
+            // 
+            exportarAPDFToolStripMenuItem.Name = "exportarAPDFToolStripMenuItem";
+            exportarAPDFToolStripMenuItem.Size = new Size(180, 22);
+            exportarAPDFToolStripMenuItem.Text = "Exportar a PDF";
+            exportarAPDFToolStripMenuItem.Click += exportarAPDFToolStripMenuItem_Click;
+            // 
             // cerrarSesionToolStripMenuItem
             // 
             cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
@@ -133,7 +166,7 @@
             panel_admin.Size = new Size(1156, 542);
             panel_admin.TabIndex = 3;
             // 
-            // Admin
+            // Home
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -144,7 +177,7 @@
             MainMenuStrip = menuStrip1;
             MaximizeBox = false;
             MinimizeBox = false;
-            Name = "Admin";
+            Name = "Home";
             ShowIcon = false;
             Text = "Vinoteca";
             Load += Admin_Load;
@@ -167,5 +200,9 @@
         private ToolStripMenuItem carritoToolStripMenuItem;
         private ToolStripMenuItem cerrarSesionToolStripMenuItem;
         private ToolStripMenuItem logToolStripMenuItem;
+        private ToolStripMenuItem informesToolStripMenuItem;
+        private ToolStripMenuItem exportarACSVToolStripMenuItem;
+        private ToolStripMenuItem exportarAJSONToolStripMenuItem;
+        private ToolStripMenuItem exportarAPDFToolStripMenuItem;
     }
 }

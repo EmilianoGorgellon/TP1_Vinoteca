@@ -38,13 +38,13 @@ namespace TP1_UTN
                 if (!string.IsNullOrEmpty(user) && !string.IsNullOrEmpty(pw))
                 {
                     var data = await Cliente.Login(user, pw);
-                   
+
                     this.Hide();
-                    Admin admin = new();
-                    admin.IdUsername = data.userId;
-                    admin._isAdmin = data.isAdmin;
-                    admin.ShowDialog();
-                    if (admin.DialogResult == DialogResult.Cancel)
+                    Home home = new();
+                    home.IdUsername = data.userId;
+                    home._isAdmin = data.isAdmin;
+                    home.ShowDialog();
+                    if (home.DialogResult == DialogResult.Cancel)
                     {
                         this.Show();
                     }
@@ -53,12 +53,11 @@ namespace TP1_UTN
                 {
                     lbl_credentialsError.Text = "Error, debe agregar valores.";
                 }
-            } catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-         
-
         }
         /// <summary>
         /// Registra un usuario

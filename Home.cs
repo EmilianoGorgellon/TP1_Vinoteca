@@ -14,9 +14,9 @@ using TP1_UTN.Clases;
 
 namespace TP1_UTN
 {
-    public partial class Admin : Form
+    public partial class Home : Form
     {
-        public Admin()
+        public Home()
         {
             InitializeComponent();
         }
@@ -72,6 +72,7 @@ namespace TP1_UTN
                 clientesToolStripMenuItem.Visible = true;
                 agregarProductoToolStripMenuItem.Visible = true;
                 logToolStripMenuItem.Visible = true;
+                informesToolStripMenuItem.Visible = true;
             }
             showProduct();
         }
@@ -112,6 +113,43 @@ namespace TP1_UTN
         private void logToolStripMenuItem_Click(object sender, EventArgs e)
         {
             showLogs();
+        }
+
+        private async void exportarACSVToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show(await Informes.ExportarProductosACsv());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private async void exportarAJSONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show(await Informes.ExportarProductosAJSON());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private async void exportarAPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MessageBox.Show(await Informes.ExportarProductosAPDF());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

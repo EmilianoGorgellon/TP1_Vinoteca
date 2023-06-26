@@ -25,7 +25,6 @@ C:\Users\Gorgellon\source\repos\TP1_UTN\bin\Debug\net6.0-windows\System.Net.Http
 C:\Users\Gorgellon\source\repos\TP1_UTN\bin\Debug\net6.0-windows\Newtonsoft.Json.dll
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.csproj.CopyComplete
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.Productos.resources
-C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.Admin.resources
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.Registrarse.resources
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.EditUser.resources
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.RegistrarProducto.resources
@@ -35,3 +34,8 @@ C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.Carrito
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.CarritoBox.resources
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.EditProduct.resources
 C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.Log.resources
+C:\Users\Gorgellon\source\repos\TP1_UTN\obj\Debug\net6.0-windows\TP1_UTN.Home.resources
+C:\Users\Gorgellon\source\repos\TP1_UTN\bin\Debug\net6.0-windows\BouncyCastle.Crypto.dll
+C:\Users\Gorgellon\source\repos\TP1_UTN\bin\Debug\net6.0-windows\itextsharp.dll
+C:\Users\Gorgellon\source\repos\TP1_UTN\bin\Debug\net6.0-windows\WinForms.DataVisualization.Utilities.dll
+C:\Users\Gorgellon\source\repos\TP1_UTN\bin\Debug\net6.0-windows\WinForms.DataVisualization.dll

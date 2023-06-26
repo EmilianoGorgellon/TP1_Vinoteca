@@ -23,29 +23,16 @@ namespace TP1_UTN
 
         private async void btn_add_product_Click(object sender, EventArgs e)
         {
-            string name = txb_name.Text;
-            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(linkImage) && float.TryParse(numeric_price.Text, out float precio) && int.TryParse(numeric_stock.Text, out int stock))
+            string nombre = txb_name.Text;
+            if (!string.IsNullOrEmpty(nombre) && !string.IsNullOrEmpty(linkImage) && float.TryParse(numeric_price.Text, out float precio) && int.TryParse(numeric_stock.Text, out int stock))
             {
-                DateTime fechaActual = DateTime.Now;
-                string fechaFormateada = fechaActual.ToString("dd/MM/yyyy HH:mm");
-
-                Producto product = new Producto(name, precio, stock, linkImage, fechaFormateada);
-
-                FirebaseResponse response = await Firebase.SetElement("productos/", product);
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    MessageBox.Show("Se creo satisfactoriamente un nuevo producto");
-                }
-                else
-                {
-                    MessageBox.Show($"Error: ${response}");
-                }
-                this.Close();
+                MessageBox.Show(await Producto.AgregarProducto(nombre, precio, stock, linkImage));
             }
             else
             {
                 MessageBox.Show("Debe completar todos los campos");
             }
+            this.Close();
         }
 
         private void btn_select_image_Click(object sender, EventArgs e)

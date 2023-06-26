@@ -39,6 +39,7 @@
             dataGridViewPersonas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewPersonas.Location = new Point(3, 104);
             dataGridViewPersonas.Name = "dataGridViewPersonas";
+            dataGridViewPersonas.ReadOnly = true;
             dataGridViewPersonas.RowTemplate.Height = 25;
             dataGridViewPersonas.Size = new Size(1156, 145);
             dataGridViewPersonas.TabIndex = 1;

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace TP1_UTN.Clases
 {
@@ -138,6 +139,40 @@ namespace TP1_UTN.Clases
                     }
                 }
                 throw new Exception("Error en la compra");
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+
+        }
+
+        public async static Task<string> AgregarProducto(string nombre, float precio, int stock, string linkImage)
+        {
+            try
+            {
+                DateTime fechaActual = DateTime.Now;
+                string fechaFormateada = fechaActual.ToString("dd/MM/yyyy HH:mm");
+
+                var data = new
+                {
+                    Fecha = fechaFormateada,
+                    LinkImage = linkImage,
+                    Nombre = nombre, 
+                    Precio = precio,
+                    Stock = stock
+                };
+
+                FirebaseResponse response = await Firebase.SetElement("productos/", data);
+                if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                {
+                    return "Se creo satisfactoriamente un nuevo producto";
+                }
+                else
+                {
+                    return $"Error: ${response.ToString()}";
+                }
+                
             }
             catch (Exception ex)
             {
