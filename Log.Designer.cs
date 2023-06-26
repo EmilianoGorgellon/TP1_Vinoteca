@@ -28,9 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             dataGridViewLog = new DataGridView();
             chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)dataGridViewLog).BeginInit();
@@ -52,18 +51,14 @@
             // 
             // chart
             // 
-            chartArea2.Name = "ChartArea1";
-            chart.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            chart.Legends.Add(legend2);
-            chart.Location = new Point(644, 12);
+            chartArea1.Name = "ChartArea1";
+            chart.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            chart.Legends.Add(legend1);
+            chart.Location = new Point(651, 1);
             chart.Margin = new Padding(10);
             chart.Name = "chart";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            chart.Series.Add(series2);
-            chart.Size = new Size(467, 480);
+            chart.Size = new Size(467, 609);
             chart.TabIndex = 4;
             chart.Text = "Grafico de logs";
             // 

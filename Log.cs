@@ -62,31 +62,45 @@ namespace TP1_UTN
 
         private async void FillDataToChart()
         {
-            FirebaseResponse response = await Firebase.GetElement("productos");
+            FirebaseResponse response = await Firebase.GetElement("logs");
             Dictionary<string, Logs> lista = JsonConvert.DeserializeObject<Dictionary<string, Logs>>(response.Body);
+            Dictionary<string, int> accionPorFecha = new Dictionary<string, int>();
+            ChartArea chartArea = new ChartArea();
+            chart.ChartAreas.Add(chartArea);
 
-            //string[] series = { "Primero", "segundo", "tercero" };
-            //int[] puntos = { 23, 70, 10 };
 
-            //chart.Titles.Add("Tituloo");
-
-            //for (int i = 0; i < series.Length; i++)
-            //{
-            //    Series serie = chart.Series.Add(series[i]);
-
-            //    serie.Label = puntos[i].ToString();
-            //    serie.Points.Add(puntos[i]);
-            //}
-            
             foreach (KeyValuePair<string, Logs> elemento in lista)
             {
-                string user = await Logs.GetUser(elemento.Value.IdUser);
-                Series serie = chart.Series.Add(user);
-                serie.Label = elemento.Value.Action;
-                //serie.Label = elemento.Value.
-                //serie.Points.Add(puntos[i]);
+                DateTime fecha = DateTime.Parse(elemento.Value.FechaActual).Date; // Obtener solo la fecha sin el horario
 
+                string fechaString = fecha.ToString("yyyy-MM-dd"); // Convertir la fecha en formato de cadena
+
+
+                if (accionPorFecha.ContainsKey(fechaString))
+                {
+                    accionPorFecha[fechaString]++;
+                }
+                else
+                {
+                    accionPorFecha[fechaString] = 1;
+                }
             }
+            Series series = new Series();
+            series.ChartType = SeriesChartType.Column;
+            series.Name = "Acciones por fecha";
+            chartArea.AxisX.IsReversed = true;
+            foreach (KeyValuePair<string, int> elemento in accionPorFecha)
+            {
+                DataPoint dataPoint = new DataPoint();
+                dataPoint.AxisLabel = elemento.Key;
+                dataPoint.YValues = new double[] { elemento.Value };
+                series.Points.Add(dataPoint);
+            }
+
+            chart.Series.Add(series);
+
+            // Agrega el gráfico a tu formulario o control
+            this.Controls.Add(chart);
         }
 
         /// <summary>

@@ -13,7 +13,7 @@ namespace TP1_UTN.Clases
 {
     public static class Firebase
     {
-        private static readonly IFirebaseConfig Config = new FirebaseConfig
+        public static readonly IFirebaseConfig Config = new FirebaseConfig
         {
             AuthSecret = "snuLFpLpLUZwfO9H0hNjiTxLTkLnAA44fIMHKIz8",
             BasePath = "https://tp1utn-default-rtdb.firebaseio.com/"

@@ -15,7 +15,7 @@ namespace TP1_UTN.Clases
         public string IdUser { get; set; }
         public string Action { get; set; }
         public string FechaActual { get; set; }
-        public async static void SetLogs(string idUser, string action)
+        public async static Task<bool> SetLogs(string idUser, string action)
         {
             try
             {
@@ -32,16 +32,13 @@ namespace TP1_UTN.Clases
                     FirebaseResponse response = await Firebase.SetElement($"logs/", data);
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
-                        return;
-                    } else
-                    {
-                        throw new Exception(response.StatusCode.ToString());
+                        return true;
                     }
                 }
-                
+                return false;
             } catch (Exception ex)
             {
-                throw new Exception(ex.Message);
+                return false;
             }
         }
 
